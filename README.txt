@@ -1,4 +1,5 @@
 # Senior-Project
+# For any questions or issues please email ahallman002@my.wilmu.edu
 Instruction on how to use the Budget App
   After downloading the zip folder extract the contents of the zip to a location of your choosing. 
   Next simply run the Budgen_app.exe file by either double clicking or doing right click->run on the executable.
