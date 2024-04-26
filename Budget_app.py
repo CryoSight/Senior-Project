@@ -106,14 +106,18 @@ class ExpenseTrackerApp:
             return 0.00 <= amount <= 1000000.00 and re.match(r'^\d+(\.\d{0,2})?$', new_value) is not None
         except ValueError:
             return False
-
+        
     # Validate that the date is in the correct format
     def validate_date(self, event):
-        date_pattern = r'^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$'
-        if not re.match(date_pattern, self.date_entry.get()):
-            self.date_entry.config(bg="red")
-        else:
+        date_pattern = r'^(0[1-9]|1[0-2])/(0[1-9]|[1-2]\d|3[01])/\d{4}$'
+        entered_date = self.date_entry.get()
+        match_result = re.match(date_pattern, entered_date)
+        if match_result:
             self.date_entry.config(bg="white")
+            return True  # Return True if date format is valid
+        else:
+            self.date_entry.config(bg="red")
+            return False  # Return False if date format is invalid
 
     # Validate and save data if correct
     def save_data(self):
